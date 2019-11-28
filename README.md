@@ -17,7 +17,7 @@ El Arduino Uno es la version más popular del microcontrolador. Se puede aliment
 
 Nosotros hemos usado el kit de Arduino del [Seed Studio](https://www.seeedstudio.com/Grove-Starter-Kit-for-Arduino-p-1855.html) con el escudo 'breakout' para minimizar el cableado de las varias conexiones. 
 
-<img src="https://github.com/La-Fabrica-del-Sol/detector_de_moviment_d-nadal/blob/master/img/breakout.jpg" width=650>
+<img src="https://github.com/La-Fabrica-del-Sol/detector_de_moviment_d-nadal/blob/master/img/breakout.jpg" width=500>
 
 **3. Módulo de sensor de sonido (micrófono piezo)**
 
