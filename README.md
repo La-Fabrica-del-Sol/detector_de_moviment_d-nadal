@@ -12,7 +12,7 @@ Proyecto de Arduino: Arbol de navidad
 - 1x Tiro de LEDs 
 - 1x Fuente de alimentación adecuada para los LEDs y el Arduino
 
-Hemos usado el kit de Arduino del (Seed Studio)[ https://www.seeedstudio.com/Grove-Starter-Kit-for-Arduino-p-1855.html] con el escudo 'breakout' para minimizar el cableado de las varias conexiones. 
+Hemos usado el kit de Arduino del [Seed Studio](https://www.seeedstudio.com/Grove-Starter-Kit-for-Arduino-p-1855.html) con el escudo 'breakout' para minimizar el cableado de las varias conexiones. 
 
 
 
