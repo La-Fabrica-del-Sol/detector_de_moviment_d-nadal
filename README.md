@@ -11,7 +11,7 @@
 
 El Arduino Uno es la version más popular del microcontrolador. 
 
-![Arduino Uno](/img/arduino_uno.jpg | width=600)
+<img src="https://github.com/La-Fabrica-del-Sol/detector_de_moviment_d-nadal/blob/master/img/arduino_uno.jpg" width=600>
 
 **2. Escudo 'breakout' o cables dupont para hacer las conexiones**
 
