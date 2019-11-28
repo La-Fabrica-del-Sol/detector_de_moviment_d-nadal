@@ -11,36 +11,37 @@
 
 El Arduino Uno es la version más popular del microcontrolador. 
 
-![Arduino Uno](/img/arduino_uno.jpg)
+![Arduino Uno](/img/arduino_uno.jpg | width=600)
 
-**2. Escudo 'breakout' o cables dupont para hacer las conexiones **
+**2. Escudo 'breakout' o cables dupont para hacer las conexiones**
 
 Nosotros hemos usado el kit de Arduino del [Seed Studio](https://www.seeedstudio.com/Grove-Starter-Kit-for-Arduino-p-1855.html) con el escudo 'breakout' para minimizar el cableado de las varias conexiones. 
 
-![Escudo breakout](/img/breakout.jpg)
+![Escudo breakout](/img/breakout.jpg | width=600)
 
 **3. Módulo de sensor de sonido (micrófono piezo)**
 
 Por supuesto puedes utilizar otros modulos de sensores de sonido!
-![Modulo sonido](/img/sound_sensor.jpg)
+
+![Modulo sonido](/img/sound_sensor.jpg | width=200)
 
 **4. Módulo de sensor de movimiento (RCLW-0516)**
 
 El Arduino Uno es la version más popular del microcontrolador. 
 
-![Modulo movimiento](/img/rclw-0516.jpg)
+![Modulo movimiento](/img/rcwl-0516.jpg | width=300)
 
 **5. 3x módulos de interruptor electrónico (relés)**
 
 El Arduino Uno es la version más popular del microcontrolador. 
 
-![Modulo relé](/img/relay.jpg)
+![Modulo relé](/img/relay.jpg | width=100)
 
 **6. Tiro de LEDs RGB (SMD5050)**
 
 El Arduino Uno es la version más popular del microcontrolador. 
 
-![Tiro de LEDs](/img/smd5050.jpg)
+![Tiro de LEDs](/img/smd5050.jpg | width=400)
 
 **7. Fuente de alimentación adecuada para los LEDs y el Arduino**
 
