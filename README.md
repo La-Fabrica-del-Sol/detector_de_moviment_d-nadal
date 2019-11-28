@@ -11,7 +11,7 @@
 
 El Arduino Uno es la version más popular del microcontrolador. 
 
-<img src="https://github.com/La-Fabrica-del-Sol/detector_de_moviment_d-nadal/blob/master/img/arduino_uno.jpg" width=600>
+<img src="https://github.com/La-Fabrica-del-Sol/detector_de_moviment_d-nadal/blob/master/img/arduino_uno.jpg" width=500>
 
 **2. Escudo 'breakout' o cables dupont para hacer las conexiones**
 
@@ -35,13 +35,13 @@ El Arduino Uno es la version más popular del microcontrolador.
 
 El Arduino Uno es la version más popular del microcontrolador. 
 
-<img src="https://github.com/La-Fabrica-del-Sol/detector_de_moviment_d-nadal/blob/master/img/relay.jpg" width=100>
+<img src="https://github.com/La-Fabrica-del-Sol/detector_de_moviment_d-nadal/blob/master/img/relay.jpg" width=300>
 
 **6. Tiro de LEDs RGB (SMD5050)**
 
 El Arduino Uno es la version más popular del microcontrolador. 
 
-<img src="https://github.com/La-Fabrica-del-Sol/detector_de_moviment_d-nadal/blob/master/img/smd5050.jpg" width=400>
+<img src="https://github.com/La-Fabrica-del-Sol/detector_de_moviment_d-nadal/blob/master/img/smd5050.jpg" width=300>
 
 **7. Fuente de alimentación adecuada para los LEDs y el Arduino**
 
