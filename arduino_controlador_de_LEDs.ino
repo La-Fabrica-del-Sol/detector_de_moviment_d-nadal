@@ -1,76 +1,118 @@
 /*
-Proyecto de Arduino: arbol de navidad para taller de la Fabrica del Sol
+Proyecto de Arduino: arbol de navidad para un taller de la Fàbrica del Sol
 Para usar con la placa Arduino Uno (R3)
 Will Lorea & Maria 26 Nov 2019
 
 */
 
-// PRIMERO, UNA SECCION DONDE DEFENIMOS LOS VARIABLES (GLOBALES)
 
-int movementSensorPin=5;
-// definir en cual pin esta enchufado el sensor de movimiento
+// PRIMERA SECCIÓN: DEFENIMOS LAS VARIABLES (GLOBALES)
 
-int soundSensorPin=A1; 
-//definir en cual pin esta enchufado el sensor de sonido
+int MOVEMENT_SENSOR_PIN=5; // definir en cuál pin digital esta enchufado el output del sensor de movimiento (RCLW-0516)
+int SOUND_SENSOR_PIN=A1; //definir en cuál pin análogo esta enchufado el output del sensor de sonido
+int RED_LED_PIN=4; //definir en cuál pin esta enchufado el input del relé que esta conectado a los LEDs rojos
+int GREEN_LED_PIN=3; //definir en cuál pin esta enchufado el input del relé que esta conectado a los LEDs verdes
+int BLUE_LED_PIN=2; //definir en cuál pin esta enchufado el input del relé que esta conectado a los LEDs azules
+boolean RedLEDStatus=false; //definir un boolean (true/false i.e. encendido/apagado) para marcar el estátus de los LEDs rojos
+boolean GreenLEDStatus=false; //definir un boolean (true/false i.e. encendido/apagado) para marcar el estátus de los LEDs verdes
+boolean BlueLEDStatus=false; //definir un boolean (true/false i.e. encendido/apagado) para marcar el estátus de los LEDs azules
+int SoundLimit=360; // definir un límite de sonido (entre 0 y 1023) y si pasamos de ello, podremos actuar (p.e. encender o apagar LEDs)
+int PreviousSoundSensorData=0; // crear un variable donde guardamos la última medida del valor del sensor de sonido
 
-int LEDPin=4; 
-//definir en cual pin esta enchufado el rele que esta conectado a los LEDs
 
-boolean LEDStatus=false; 
-//definir un boolean (true/false=on/off) para marcar el estatus de los LEDs
-
-int SoundLimit=360;
-// definir un limite de sonido, y si pasamos de ello, actuamos (p.e. enciende los LEDs)
-
-int PreviousSensorData=0;
-// crear un variable donde guardamos la ultima medida del valor del sensor de sonido
 
 // SEGUNDA SECCION: LAS FUNCIONES BASICAS
 
-void setup() {   
- // esta seccion de codigo se corre una vez al principio cuando el Arduino se despierta
-
- Serial.begin(9600);
- // abrimos un canal de comunicacion por Serial (USB)
- 
- pinMode(soundSensorPin,INPUT);
- // decimos al Arduino que el pin donde tenemos el sensor de sonido enchufado sera para INPUT o sea para recibir informacion
-
-  pinMode(movementSensorPin,INPUT);
- // decimos al Arduino que el pin donde tenemos el sensor de movimiento enchufado sera para INPUT o sea para recibir informacion
- 
- pinMode(LEDPin,OUTPUT);
- // decimos al Arduino que el pin donde tenemos enchufado el rele que controla los LEDs es para OUTPUT o sea para enviar informacion (on/off)
+void setup() {   // esta seccion de codigo se corre solo una vez, cuando el Arduino se despierta
+  
+  Serial.begin(9600); // abrimos un canal de comunicacion por Serial (USB) para que el Arduino nos pueda informar de los valores que dan los sensores
+  pinMode(SOUND_SENSOR_PIN,INPUT); // decimos al Arduino que el pin donde tenemos el sensor de sonido enchufado sera para INPUT o sea para recibir informacion  
+  pinMode(MOVEMENT_SENSOR_PIN,INPUT); // decimos al Arduino que el pin donde tenemos el sensor de movimiento enchufado sera para INPUT o sea para recibir informacion
+  pinMode(RED_LED_PIN,OUTPUT); // decimos al Arduino que el pin donde tenemos enchufado el relé que controla los LEDs es para OUTPUT o sea para enviar informacion (on/off)
+  pinMode(BLUE_LED_PIN,OUTPUT); // decimos al Arduino que el pin donde tenemos enchufado el relé que controla los LEDs es para OUTPUT o sea para enviar informacion (on/off)
+  pinMode(GREEN_LED_PIN,OUTPUT); // decimos al Arduino que el pin donde tenemos enchufado el relé que controla los LEDs es para OUTPUT o sea para enviar informacion (on/off)
 
 }
 
 
 
-void loop() { 
-  // esta seccion de codigo se corre continuamente (pero despues de la seccion de 'setup' arriba por supuesto)
+void loop() {  // esta seccion de codigo se corre continuamente (pero despues de la seccion de 'setup' arriba por supuesto)
   
-  int SensorData=analogRead(soundSensorPin); 
-  // definimos un variable llamado 'SensorData' y le pasamos el valor del sensor de sonido en este momento con la funcion 'digitalRead'
+  boolean MovementSensorData=digitalRead(MOVEMENT_SENSOR_PIN); //cogemos el valor del sensor de movimiento como un boolean (true/false i.e. 1 o 0)
+  int SoundSensorData=analogRead(SOUND_SENSOR_PIN); // definimos un variable llamado 'SensorData' y le pasamos el valor del sensor de sonido en este momento con la funcion 'digitalRead'
+  Serial.println(SoundSensorData); // durante cada iteración del bucle, esta linea nos imprime el valor que el sensor esta percibiendo
 
-  boolean MovementSensorData=digitalRead(movementSensorPin);
-  //cogemos el valor del sensor de movimiento 
-
-  Serial.println(MovementSensorData);
-  
-  Serial.println(SensorData);
-  // cada iteracion del bucle nos va a imprimir el valor que el sensor esta percibiendo
-  
-  if(SensorData-PreviousSensorData>SoundLimit){
-  // si el valor recibido del sensor de sonido es 1, hacemos lo siguente
-    if(LEDStatus==false){
-        LEDStatus=true;
-        digitalWrite(LEDPin,HIGH);
-        Serial.println("Sound detected!\nActivating LEDs...");
+  if(MovementSensorData==1){  //si detectamos movimiento, hacemos lo siguente
+    Serial.println("Movimiento detectado! Activando LEDs...");
+    if(GreenLEDStatus==false){ // una vez detectado movimiento, miramos si los LEDs están encendidos. Si estan apagados, los encendemos. Si están encendidos, no hacemos nada.
+      GreenLEDStatus=true; // 
+      digitalWrite(GREEN_LED_PIN,HIGH); // enviamos el señal de "HIGH" al relé para que endienda los LEDs
+      }
+    if(SoundSensorData-PreviousSoundSensorData>SoundLimit){ // si el valor recibido del sensor de sonido supera el valor previo por encima de nuestro limite, hacemos lo siguente
+        Serial.println("Sonido detectado! Cambiando LEDs...");
+        change_color(); //ejecutamos nuestra funcion llamado "change_color" que cambia el color de los LEDs activados
         delay(1000);
     }
-    else{
-        LEDStatus=false;
-        digitalWrite(LEDPin,LOW);
+  else{ // si no detectamos movimiento, apagamos los LEDs
+      RedLEDStatus=false;
+      digitalWrite(RED_LED_PIN,LOW);
+      GreenLEDStatus=false;
+      digitalWrite(GREEN_LED_PIN,LOW);
+      BlueLEDStatus=false;
+      digitalWrite(BLUE_LED_PIN,LOW);
     }
-  } PreviousSensorData=SensorData;
- } 
+  } 
+}
+
+
+// TERCERA SECCION: FUNCIONES ESPECIALES
+
+void change_color() { // creamos una funcion que cambia el color de los LEDs encendidos cada vez que lo llamamos en el codigo 
+  Serial.println("Cambiando de color...");
+  
+  if(RedLEDStatus==false && GreenLEDStatus==true && BlueLEDStatus==false){ // si solo los LEDs verdes estan encendidos, apagamos los verdes y encendemos solo los rojos
+    GreenLEDStatus=false;
+    digitalWrite(GREEN_LED_PIN,LOW);
+    RedLEDStatus=true;
+    digitalWrite(RED_LED_PIN,HIGH);
+   
+  } else if(RedLEDStatus==true && GreenLEDStatus==false && BlueLEDStatus==false){ // si solo los LEDs rojos estan encendidos, apagamos los rojos y encendemos solo los azules
+    RedLEDStatus=false;
+    digitalWrite(RED_LED_PIN,LOW);
+    BlueLEDStatus=true;
+    digitalWrite(BLUE_LED_PIN,HIGH);
+    
+  } else if(RedLEDStatus==false && GreenLEDStatus==false && BlueLEDStatus==true){ // si solo los LEDs azules estan encendidos, encendemos los verdes tambien
+    GreenLEDStatus=true;
+    digitalWrite(GREEN_LED_PIN,HIGH);
+    
+  } else if(RedLEDStatus==false && GreenLEDStatus==true && BlueLEDStatus==true){ // si los LEDs azules y verdes estan encendidos, apagamos los azules y encendemos los rojos
+    BlueLEDStatus=false;
+    digitalWrite(BLUE_LED_PIN,LOW);
+    RedLEDStatus=true;
+    digitalWrite(RED_LED_PIN,HIGH);
+    
+  } else if(RedLEDStatus==true && GreenLEDStatus==true && BlueLEDStatus==false){ // si los LEDs rojos y verdes estan encendidos, apagamos los verdes y encendemos los azules
+    GreenLEDStatus=false;
+    digitalWrite(GREEN_LED_PIN,LOW);
+    BlueLEDStatus=true;
+    digitalWrite(BLUE_LED_PIN,HIGH);
+    
+  } else if(RedLEDStatus==true && GreenLEDStatus==false && BlueLEDStatus==true){ // si los LEDs rojos y azules estan encendidos, encendemos los verdes tambien
+    GreenLEDStatus=true;
+    digitalWrite(GREEN_LED_PIN,HIGH);
+  
+  } else { // si no es uno de los casos anteriores, volvemos a encender solo los LEDs verdes
+     RedLEDStatus=false;
+     digitalWrite(RED_LED_PIN,LOW);
+     BlueLEDStatus=false;
+     digitalWrite(BLUE_LED_PIN,LOW);
+     GreenLEDStatus=true;
+     digitalWrite(GREEN_LED_PIN,HIGH);
+  }
+}
+
+
+
+
+
