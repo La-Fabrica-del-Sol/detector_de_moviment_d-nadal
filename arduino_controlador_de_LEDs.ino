@@ -44,7 +44,7 @@ void loop() {  // esta seccion de codigo se corre continuamente (pero despues de
 
   if(MovementSensorData==1){  //si detectamos movimiento, hacemos lo siguente
     Serial.println("Movimiento detectado! Activando LEDs...");
-    if(GreenLEDStatus==false){ // una vez detectado movimiento, miramos si los LEDs están encendidos. Si estan apagados, los encendemos. Si están encendidos, no hacemos nada.
+    if(RedLEDStatus==false && GreenLEDStatus==false && BlueLEDStatus==false){ // una vez detectado movimiento, miramos si los LEDs están encendidos. Si estan todos apagados, encendemos los verdes. Si están encendidos, no hacemos nada.
       GreenLEDStatus=true; // 
       digitalWrite(GREEN_LED_PIN,HIGH); // enviamos el señal de "HIGH" al relé para que endienda los LEDs
       }
