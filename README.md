@@ -44,9 +44,11 @@ Los tiros de LEDs RGB son bastante baratos y tienen muchos usos.
 <img src="https://github.com/La-Fabrica-del-Sol/detector_de_moviment_d-nadal/blob/master/img/smd5050.jpg" width=250>
 
 **7. Fuente de alimentación adecuada para los LEDs y el Arduino**
+
 Necesitaremos una fuente de 12 voltios (y mas de 1 amperio) para el tiro de LEDs, que afortunadamente es apto para el Arduino tambien.
 
-
+## Instrucciones
+Todavía estamos desarrolando esta sección.
 
 
 
