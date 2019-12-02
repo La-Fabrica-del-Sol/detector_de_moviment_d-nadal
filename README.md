@@ -35,13 +35,13 @@ Este módulo es un sensor que funciona como el radar. Utiliza ondas electromagne
 
 Los módulos de relés son como interruptores eléctricos que nos permitan encender y apagar los tiros de LEDs con el Arduino.
 
-<img src="https://github.com/La-Fabrica-del-Sol/detector_de_moviment_d-nadal/blob/master/img/relay.jpg" width=300>
+<img src="https://github.com/La-Fabrica-del-Sol/detector_de_moviment_d-nadal/blob/master/img/relay.jpg" width=350>
 
 **6. Tiro de LEDs RGB (SMD5050)**
 
 Los tiros de LEDs RGB son bastante baratos y tienen muchos usos. 
 
-<img src="https://github.com/La-Fabrica-del-Sol/detector_de_moviment_d-nadal/blob/master/img/smd5050.jpg" width=250>
+<img src="https://github.com/La-Fabrica-del-Sol/detector_de_moviment_d-nadal/blob/master/img/smd5050.jpg" width=210>
 
 **7. Fuente de alimentación adecuada para los LEDs y el Arduino**
 
