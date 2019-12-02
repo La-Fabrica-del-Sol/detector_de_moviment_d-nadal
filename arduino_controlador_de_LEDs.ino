@@ -8,7 +8,7 @@ Will Lorea & Maria 26 Nov 2019
 
 // PRIMERA SECCIÓN: DEFENIMOS LAS VARIABLES (GLOBALES)
 
-int MOVEMENT_SENSOR_PIN=5; // definir en cuál pin digital esta enchufado el output del sensor de movimiento (RCLW-0516)
+int MOVEMENT_SENSOR_PIN=7; // definir en cuál pin digital esta enchufado el output del sensor de movimiento (RCLW-0516)
 int SOUND_SENSOR_PIN=A1; //definir en cuál pin análogo esta enchufado el output del sensor de sonido
 int RED_LED_PIN=4; //definir en cuál pin esta enchufado el input del relé que esta conectado a los LEDs rojos
 int GREEN_LED_PIN=3; //definir en cuál pin esta enchufado el input del relé que esta conectado a los LEDs verdes
@@ -42,26 +42,24 @@ void loop() {  // esta seccion de codigo se corre continuamente (pero despues de
   int SoundSensorData=analogRead(SOUND_SENSOR_PIN); // definimos un variable llamado 'SensorData' y le pasamos el valor del sensor de sonido en este momento con la funcion 'digitalRead'
   Serial.println(SoundSensorData); // durante cada iteración del bucle, esta linea nos imprime el valor que el sensor esta percibiendo
 
-  if(MovementSensorData==1){  //si detectamos movimiento, hacemos lo siguente
+  if(MovementSensorData==true){  //si detectamos movimiento, hacemos lo siguente
     Serial.println("Movimiento detectado! Activando LEDs...");
     if(RedLEDStatus==false && GreenLEDStatus==false && BlueLEDStatus==false){ // una vez detectado movimiento, miramos si los LEDs están encendidos. Si estan todos apagados, encendemos los verdes. Si están encendidos, no hacemos nada.
       GreenLEDStatus=true; // 
       digitalWrite(GREEN_LED_PIN,HIGH); // enviamos el señal de "HIGH" al relé para que endienda los LEDs
-      }
-    if(SoundSensorData-PreviousSoundSensorData>SoundLimit){ // si el valor recibido del sensor de sonido supera el valor previo por encima de nuestro limite, hacemos lo siguente
+      }else if(SoundSensorData-PreviousSoundSensorData>SoundLimit){ // si el valor recibido del sensor de sonido supera el valor previo por encima de nuestro limite, hacemos lo siguente
         Serial.println("Sonido detectado! Cambiando LEDs...");
         change_color(); //ejecutamos nuestra funcion llamado "change_color" que cambia el color de los LEDs activados
-        delay(1000);
-    }
-  else{ // si no detectamos movimiento, apagamos los LEDs
+        delay(100); // esperemos 1/100 de un segundo despues de cambiar de color (para no cambiar de color demasiado rapido)
+     }
+  } else { // si no detectamos movimiento, apagamos todos los LEDs
       RedLEDStatus=false;
       digitalWrite(RED_LED_PIN,LOW);
       GreenLEDStatus=false;
       digitalWrite(GREEN_LED_PIN,LOW);
       BlueLEDStatus=false;
       digitalWrite(BLUE_LED_PIN,LOW);
-    }
-  } 
+  }
 }
 
 
@@ -111,8 +109,5 @@ void change_color() { // creamos una funcion que cambia el color de los LEDs enc
      digitalWrite(GREEN_LED_PIN,HIGH);
   }
 }
-
-
-
 
 
