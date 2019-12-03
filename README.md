@@ -48,8 +48,9 @@ Los tiros de LEDs RGB son bastante baratos y tienen muchos usos.
 Necesitaremos una fuente de 12 voltios (y mas de 1 amperio) para el tiro de LEDs, que afortunadamente es apto para el Arduino tambien.
 
 ## Instrucciones
-Todavía estamos desarrolando esta sección.
+Aquí tienes una diagrama básica de las conexiónes. El Arduino y los LEDs están alimentados con 12 voltios, y los sensores y los relés están alimentados con la salida de 5 voltios del Arduino. 
 
+<img src="https://github.com/La-Fabrica-del-Sol/detector_de_moviment_d-nadal/blob/master/img/diagrama_arbol_navidad.jpg" width=1000>
 
 
 
