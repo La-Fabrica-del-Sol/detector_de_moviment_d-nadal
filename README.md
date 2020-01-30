@@ -1,5 +1,5 @@
 # Arbol de navidad
-*Creado por Will Lorea & Maria en 26 Nov 2019 para un taller de la Fàbrica del Sol*
+*Creado por Will, Lorea, Maria, & Bea en 26 Nov 2019 para un taller de la Fàbrica del Sol*
 
 - **Què es?** Es un arbol de navidad con luces.
 - **Per a què serveix?**  Ahorra electricidad comparado con otros arboles de navidad, porque las luces solo se enciendan cuando hay gente cerca para verlas.
