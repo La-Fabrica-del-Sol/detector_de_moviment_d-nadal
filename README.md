@@ -53,23 +53,27 @@ Aquí tienes una diagrama básica de las conexiónes. El Arduino y los LEDs est�
 <img src="https://github.com/La-Fabrica-del-Sol/detector_de_moviment_d-nadal/blob/master/img/diagrama_arbol_navidad.jpg" width=1000>
 
 Pusimos toda la electronica (el Arduino con los sensores) dentro de una caja de madera y metacrilato:
-<img src="https://github.com/La-Fabrica-del-Sol/detector_de_moviment_d-nadal/blob/master/img/arbol_caja_electronica.jpg" width=400>
+
+<img src="https://github.com/La-Fabrica-del-Sol/detector_de_moviment_d-nadal/blob/master/img/arbol_caja_electronica.jpg" width=700>
 
 Luego diseñamos el arbol y cortamos las formas de las ramas en cartón con la cortadora láser:
-<img src="https://github.com/La-Fabrica-del-Sol/detector_de_moviment_d-nadal/blob/master/img/arbol_desmontado.jpg" width=400>
+
+<img src="https://github.com/La-Fabrica-del-Sol/detector_de_moviment_d-nadal/blob/master/img/arbol_desmontado.jpg" width=600>
 
 Los niños tuvieron que trabajar juntos para montar el arbol usando las piezas de cartón:
-<img src="https://github.com/La-Fabrica-del-Sol/detector_de_moviment_d-nadal/blob/master/img/arbol_medio_montado.jpg" width=400>
+
+<img src="https://github.com/La-Fabrica-del-Sol/detector_de_moviment_d-nadal/blob/master/img/arbol_medio_montado.jpg" width=600>
 
 Los niños diseñaron adornos para el arbol y gravamos sus dibujos en metracrilato:
-<img src="https://github.com/La-Fabrica-del-Sol/detector_de_moviment_d-nadal/blob/master/img/arbol_decoraciones_gravadas.jpg" width=400>
 
-Una vez el arbol estaba totalmente montado, pusimos el tiro de LEDs y enchufamos el sistema de control:
-<img src="https://github.com/La-Fabrica-del-Sol/detector_de_moviment_d-nadal/blob/master/img/arbol_luz_blanca.jpg" width=400>
+<img src="https://github.com/La-Fabrica-del-Sol/detector_de_moviment_d-nadal/blob/master/img/arbol_decoraciones_gravadas.jpg" width=600>
 
-Con nuestro codigo, las luces se encienden cuando el sensor de movimeinto detecta que hay gente cerca:
+Una vez el arbol estaba totalmente montado, pusimos el tiro de LEDs y enchufamos el sistema de control. Con nuestro codigo, las luces solo se encienden cuando el sensor de movimeinto detecta que hay gente cerca!
+
+<img src="https://github.com/La-Fabrica-del-Sol/detector_de_moviment_d-nadal/blob/master/img/arbol_luz_blanca.jpg" width=600>
 
 
 Cuando el sensor de audio detecta palmadas o otros sonidos fuertes, el arbol cambia de color:
+
 <img src="https://github.com/La-Fabrica-del-Sol/detector_de_moviment_d-nadal/blob/master/img/arbol_luz_azul.jpg" width=400><img src="https://github.com/La-Fabrica-del-Sol/detector_de_moviment_d-nadal/blob/master/img/arbol_luz_verde.jpg" width=400>
 
