@@ -66,7 +66,7 @@ Los niños tuvieron que trabajar juntos para montar el arbol usando las piezas d
 
 Los niños diseñaron adornos para el arbol y gravamos sus dibujos en metracrilato:
 
-<img src="https://github.com/La-Fabrica-del-Sol/detector_de_moviment_d-nadal/blob/master/img/arbol_decoraciones_gravadas.jpg" width=600>
+<img src="https://github.com/La-Fabrica-del-Sol/detector_de_moviment_d-nadal/blob/master/img/arbol_decoraciones_gravadas.jpg" width=800>
 
 Una vez el arbol estaba totalmente montado, pusimos el tiro de LEDs y enchufamos el sistema de control. Con nuestro codigo, las luces solo se encienden cuando el sensor de movimeinto detecta que hay gente cerca!
 
